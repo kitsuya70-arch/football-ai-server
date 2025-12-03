@@ -1,0 +1,25 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Champion {
+  id        Int      @id @default(autoincrement())
+  generation Int
+  fitness   Float
+  dna       Json     // Prisma รองรับ JSON โดยตรง ไม่ต้อง Stringify เอง
+  createdAt DateTime @default(now())
+}
+model MatchLog {
+  id        Int      @id @default(autoincrement())
+  generation Int
+  result    String   // "GOAL" (ยิงเข้า) หรือ "FAIL" (โดนสกัด/หมดเวลา)
+  score     Float    // คะแนนความสวยงาม (ระยะทาง)
+  createdAt DateTime @default(now())
+}
