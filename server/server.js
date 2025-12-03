@@ -124,6 +124,10 @@ app.get('/api/relay/read', (req, res) => {
     res.json(currentMatchState || { error: "No match running" });
 });
 
+app.get('/', (req, res) => {
+  res.send('✅ Football AI Server is Running!');
+});
+
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Prisma Server running on port ${PORT}`);
