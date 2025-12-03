@@ -11,7 +11,7 @@ const MatchView = () => {
     
     const fetchGameState = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/relay/read');
+        const res = await fetch('https://football-api-e14r.onrender.com');
         const data = await res.json();
         
         if (!data.error) {

@@ -12,7 +12,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/stats');
+        const res = await fetch('https://football-api-e14r.onrender.com');
         const data = await res.json();
         setStats(data);
       } catch (err) {}
